@@ -1,0 +1,18 @@
+
+{% extends "base.html" %}
+{% load render_bundle from webpack_loader %}
+
+{% block title %}Owners{% endblock %}
+
+{% block header %}
+  {% include "frontend/header.html" %}
+{% endblock %}
+
+{% block content %}
+  <div id="app"></div>
+  {% render_bundle 'owners' %}
+{% endblock %}
+
+{% block footer %}
+  {% include "frontend/footer.html" with data=data %}
+{% endblock %}

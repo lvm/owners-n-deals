@@ -1,0 +1,20 @@
+
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+    <h5 class="my-0 mr-md-auto font-weight-normal">AA HubSpot</h5>
+    {% if user.is_authenticated %}
+
+        <nav class="my-2 my-md-0 mr-md-3">
+            <a class="p-2 text-dark" href="{% url 'index' %}">Home</a>
+            <a class="p-2 text-dark" href="{% url 'owners' %}">List Owners</a>
+            <a class="p-2 text-dark" href="{% url 'deals' %}">List Deals</a>
+            <a class="p-2 text-dark" href="{% url 'deals_create' %}">Create Deal</a>
+        </nav>
+        {% if not data.userHasToken %}
+        <a class="btn btn-outline-primary" href="{{ data.oauthAuthorizePath }}"></a>Connect to HubSpot</a>
+        {% endif %}
+        <a class="btn btn-outline-primary" href="{% url 'logout' %}">Log Out</a>
+
+    {% else %}
+        <a class="btn btn-outline-primary" href="{% url 'login' %}">Log In</a>
+    {% endif %}
+</div>
